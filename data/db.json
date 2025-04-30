@@ -1,0 +1,36 @@
+{
+    "todos": [
+        {
+            "id": 1,
+            "todoGroup": "work",
+            "todoText": "meeting with clients",
+            "isCompleted": false,
+            "isEditing": false,
+            "dueDate": "August 13, 2023",
+            "priority": "High",
+            "parentId" : null
+        },
+        {
+            "id": 2,
+            "todoGroup": "School",
+            "todoText": "DO assignment",
+            "isCompleted": false,
+
+            
+            "isEditing": false,
+            "dueDate": "August 11, 2023",
+            "priority": "High",
+            "parentId": null
+        },
+        {
+            "id": 3,
+            "todoGroup": "School",
+            "todoText": "History assignment",
+            "isCompleted": false,
+            "isEditing": false,
+            "dueDate": "August 11, 2023",
+            "priority": "low",
+            "parentId": 2
+        }
+    ]
+}
