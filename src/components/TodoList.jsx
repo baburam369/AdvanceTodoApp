@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import RenderTodos from "./RenderTodos";
+import { useTodoContext } from "../contexts/todoContext";
+import TodoItem from "./TodoItem";
 
 const TodoList = () => {
   //   const [nestedTask, setNestedTask] = useState([]);
@@ -51,8 +52,13 @@ const TodoList = () => {
 
   return (
     <div className="pl-10 mt-2">
-      {groupedNestedTask.map((task, index) => (
-        <RenderTodos key={index} task={task} />
+      {Object.entries(groupedNestedTask).map(([groupName, todos], index) => (
+        <div key={index}>
+          <h3>{groupName}</h3>
+          {todos.map((todo) => (
+            <TodoItem key={todo.id} todo={todo} />
+          ))}
+        </div>
       ))}
     </div>
   );

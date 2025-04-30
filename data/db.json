@@ -15,8 +15,6 @@
             "todoGroup": "School",
             "todoText": "DO assignment",
             "isCompleted": false,
-
-            
             "isEditing": false,
             "dueDate": "August 11, 2023",
             "priority": "High",
@@ -31,6 +29,36 @@
             "dueDate": "August 11, 2023",
             "priority": "low",
             "parentId": 2
+        },
+        {
+            "id": 4,
+            "todoGroup": "work",
+            "todoText": "meeting with boss",
+            "isCompleted": false,
+            "isEditing": false,
+            "dueDate": "August 13, 2023",
+            "priority": "High",
+            "parentId" : null
+        },
+        {
+            "id": 5,
+            "todoGroup": "work",
+            "todoText": "Chat over Lunch with PM",
+            "isCompleted": false,
+            "isEditing": false,
+            "dueDate": "August 14, 2023",
+            "priority": "Medium",
+            "parentId" : null
+        },
+        {
+            "id": 6,
+            "todoGroup": "work",
+            "todoText": "Discuss the requirement",
+            "isCompleted": false,
+            "isEditing": false,
+            "dueDate": "August 13, 2023",
+            "priority": "High",
+            "parentId" : 5
         }
     ]
 }
