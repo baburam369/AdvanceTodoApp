@@ -59,6 +59,16 @@
             "dueDate": "August 13, 2023",
             "priority": "High",
             "parentId" : 5
+        },
+        {
+            "id": 7,
+            "todoGroup": "Daily",
+            "todoText": "Do the dishes",
+            "isCompleted": false,
+            "isEditing": false,
+            "dueDate": "August 13, 2023",
+            "priority": "High",
+            "parentId" : null
         }
     ]
 }
