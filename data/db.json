@@ -2,7 +2,7 @@
     "todos": [
         {
             "id": 1,
-            "todoGroup": "work",
+            "todoGroup": "Work",
             "todoText": "meeting with clients",
             "isCompleted": false,
             "isEditing": false,
@@ -32,7 +32,7 @@
         },
         {
             "id": 4,
-            "todoGroup": "work",
+            "todoGroup": "Work",
             "todoText": "meeting with boss",
             "isCompleted": false,
             "isEditing": false,
@@ -42,7 +42,7 @@
         },
         {
             "id": 5,
-            "todoGroup": "work",
+            "todoGroup": "Work",
             "todoText": "Chat over Lunch with PM",
             "isCompleted": false,
             "isEditing": false,
@@ -52,12 +52,12 @@
         },
         {
             "id": 6,
-            "todoGroup": "work",
+            "todoGroup": "Work",
             "todoText": "Discuss the requirement",
             "isCompleted": false,
             "isEditing": false,
             "dueDate": "August 13, 2023",
-            "priority": "High",
+            "priority": "Medium",
             "parentId" : 5
         },
         {
@@ -69,6 +69,16 @@
             "dueDate": "August 13, 2023",
             "priority": "High",
             "parentId" : null
-        }
+        },
+        {
+            "id": 7,
+            "todoGroup": "School",
+            "todoText": "Do Cs assignment",
+            "isCompleted": false,
+            "isEditing": false,
+            "dueDate": "August 13, 2023",
+            "priority": "High",
+            "parentId" : 2
+        } 
     ]
 }

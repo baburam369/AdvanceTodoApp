@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.radio-inp:has(input:checked){
+    background-color: rgb(222, 158, 63);
+}
