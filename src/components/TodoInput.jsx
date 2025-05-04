@@ -3,25 +3,30 @@ import { todoGroupsList } from "../config/todo-config";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import { useTodoContext } from "../contexts/todoContext";
+
+//format date like -> May 6, 2020
+const options = {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
+
 const TodoInput = () => {
-  const [dueDate, setDueDate] = useState(new Date());
+  const [dueDate, setDueDate] = useState(
+    new Date().toLocaleDateString(undefined, options)
+  );
   const [selectedGroup, setSelectedGroup] = useState("Daily");
   const [priority, setPriority] = useState("Low");
   const [task, setTask] = useState("");
 
+  const { handleTodoAdd } = useTodoContext();
   const inputRef = useRef(null);
 
   //input box focus on render
   useEffect(() => {
     inputRef.current.focus();
   }, []);
-
-  //format date like -> May 6, 2020
-  const options = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
 
   const handleAddTask = (parentId) => {
     const todoTask = {
@@ -35,7 +40,7 @@ const TodoInput = () => {
       parentId,
     };
 
-    console.log(todoTask);
+    handleTodoAdd(todoTask);
   };
 
   return (
@@ -84,7 +89,7 @@ const TodoInput = () => {
             todoGroupsList.map((group, index) => (
               <label
                 key={index}
-                className=" radio-inp cursor-pointer border border-gray-400 p-1 pl-3 pr-3 rounded-xl"
+                className=" has-checked:bg-orange-400 cursor-pointer border border-gray-400 p-1 pl-3 pr-3 rounded-xl"
               >
                 <input
                   type="radio"

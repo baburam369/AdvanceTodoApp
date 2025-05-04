@@ -22,15 +22,24 @@ export const TodoContextProvider = ({ children }) => {
     fetchTodos();
   }, []);
 
-  //   handleTodoState = () => {
-  //     setTodos((prevTodo) => {...prevTodo, isCompleted})
-  //   }
+  const handleTodoAdd = async (todoData) => {
+    try {
+      const response = await axios.post(`${API_BASE_URL}/todos`, todoData);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
+  // const addTodos = async () => {
+
+  // }
   return (
     <TodoContext.Provider
       value={{
         todos,
         setTodos,
+        handleTodoAdd,
       }}
     >
       {children}

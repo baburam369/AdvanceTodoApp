@@ -1,7 +1,10 @@
 const TodoItem = ({ todo }) => {
+  const addIcon = "U+0002B";
   return (
     <div className="pl-3 p-3 m-2 border rounded-md  ">
       <div className="flex flex-col">
+        {/* insert plus icon for add subtask */}
+        {/* {!todo.parentId ? <span>&#x2b;</span> : null} */}
         <label>
           <input type="checkbox" />
           <span> {todo.todoText}</span>
