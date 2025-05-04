@@ -1,7 +1,7 @@
 {
   "todos": [
     {
-      "id": 1,
+      "id": "1",
       "todoGroup": "Work",
       "todoText": "meeting with clients",
       "isCompleted": false,
@@ -11,7 +11,7 @@
       "parentId": null
     },
     {
-      "id": 2,
+      "id": "2",
       "todoGroup": "School",
       "todoText": "DO assignment",
       "isCompleted": false,
@@ -21,7 +21,7 @@
       "parentId": null
     },
     {
-      "id": 3,
+      "id": "3",
       "todoGroup": "School",
       "todoText": "History assignment",
       "isCompleted": false,
@@ -31,17 +31,7 @@
       "parentId": 2
     },
     {
-      "id": 4,
-      "todoGroup": "Work",
-      "todoText": "meeting with boss",
-      "isCompleted": false,
-      "isEditing": false,
-      "dueDate": "August 13, 2023",
-      "priority": "High",
-      "parentId": null
-    },
-    {
-      "id": 5,
+      "id": "5",
       "todoGroup": "Work",
       "todoText": "Chat over Lunch with PM",
       "isCompleted": false,
@@ -51,7 +41,7 @@
       "parentId": null
     },
     {
-      "id": 6,
+      "id": "6",
       "todoGroup": "Work",
       "todoText": "Discuss the requirement",
       "isCompleted": false,
@@ -61,26 +51,6 @@
       "parentId": 5
     },
     {
-      "id": 7,
-      "todoGroup": "Daily",
-      "todoText": "Do the dishes",
-      "isCompleted": false,
-      "isEditing": false,
-      "dueDate": "August 13, 2023",
-      "priority": "High",
-      "parentId": null
-    },
-    {
-      "id": 7,
-      "todoGroup": "School",
-      "todoText": "Do Cs assignment",
-      "isCompleted": false,
-      "isEditing": false,
-      "dueDate": "August 13, 2023",
-      "priority": "High",
-      "parentId": 2
-    },
-    {
       "id": "3722173",
       "todoGroup": "Daily",
       "todoText": "Clean House",
@@ -88,16 +58,6 @@
       "isEditing": false,
       "dueDate": "May 4, 2025",
       "priority": "Medium",
-      "parentId": null
-    },
-    {
-      "id": "2403578",
-      "todoGroup": "Work",
-      "todoText": "Get Confidential files",
-      "isCompleted": false,
-      "isEditing": false,
-      "dueDate": "May 7, 2025",
-      "priority": "High",
       "parentId": null
     },
     {
@@ -111,9 +71,9 @@
       "parentId": null
     },
     {
-      "id": "1304421",
-      "todoGroup": "Daily",
-      "todoText": "Make coffee",
+      "id": "1238881",
+      "todoGroup": "College",
+      "todoText": "Get assignemnt",
       "isCompleted": false,
       "isEditing": false,
       "dueDate": "May 4, 2025",

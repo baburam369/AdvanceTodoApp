@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+
+[data-title] {
+    position: relative;
+  }
+  
+  [data-title]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  [data-title]::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #eaf0ea;
+    color: #111;
+    padding: 4px 8px;
+    border: 1px solid #111111;
+    border-radius: 4px;
+    white-space: nowrap;
+    box-shadow: 1px 1px 3px #222;
+    padding: 6px 10px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    font-size: 14px;
+  }
+  

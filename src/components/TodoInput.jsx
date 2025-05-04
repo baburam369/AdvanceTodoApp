@@ -44,7 +44,7 @@ const TodoInput = () => {
   };
 
   return (
-    <div className="flex flex-col border rounded-xl border-gray-600">
+    <div className="flex flex-col border rounded-xl w-[35rem] sm:w-auto border-gray-600">
       <div className="flex gap-3 p-3 pl-5 pr-5 rounded-xl">
         <span>
           <input
@@ -52,11 +52,11 @@ const TodoInput = () => {
             className="border border-gray-400 p-2 w-3xs rounded-md"
             type="text"
             placeholder="What needs to be done ?"
-            onChange={(e) => setTask(e.target.value)}
+            onChange={(e) => setTask(e.target.value.trim())}
           />
         </span>
 
-        <span>
+        <span data-title="Due Date">
           <DatePicker
             className="border  border-gray-400 p-2 w-27  rounded-md"
             selected={dueDate}
@@ -67,10 +67,10 @@ const TodoInput = () => {
           />
         </span>
 
-        <span>
+        <span data-title="Priority">
           <select
             defaultValue=""
-            className="border  border-gray-400 p-2 w-26  rounded-md"
+            className=" border  border-gray-400 p-2 w-26  rounded-md"
             onChange={(e) => setPriority(e.target.value)}
           >
             <option value="" disabled>
@@ -84,12 +84,13 @@ const TodoInput = () => {
       </div>
 
       <div className="flex gap-20">
-        <div className=" ml-3 p-2 flex gap-3  ">
+        <div className=" ml-3 p-2 flex flex-wrap gap-3  ">
           {todoGroupsList &&
             todoGroupsList.map((group, index) => (
               <label
                 key={index}
                 className=" has-checked:bg-orange-400 cursor-pointer border border-gray-400 p-1 pl-3 pr-3 rounded-xl"
+                data-title="Todo Group"
               >
                 <input
                   type="radio"

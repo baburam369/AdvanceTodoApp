@@ -27,19 +27,24 @@ export const TodoContextProvider = ({ children }) => {
       const response = await axios.post(`${API_BASE_URL}/todos`, todoData);
       console.log(response);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
-  // const addTodos = async () => {
-
-  // }
+  const handleTodoDelete = async (id) => {
+    try {
+      const response = await axios.delete(`${API_BASE_URL}/todos/${id}`);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <TodoContext.Provider
       value={{
         todos,
         setTodos,
         handleTodoAdd,
+        handleTodoDelete,
       }}
     >
       {children}

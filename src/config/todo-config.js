@@ -1,1 +1,1 @@
-export const todoGroupsList = ["School", "Work", "Daily", "College"];
+export const todoGroupsList = ["School", "Work", "Daily", "College", ,];
