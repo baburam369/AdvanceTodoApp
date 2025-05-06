@@ -12,7 +12,7 @@ const options = {
   day: "numeric",
 };
 
-const TodoInput = () => {
+const TodoInput = (props) => {
   const [dueDate, setDueDate] = useState(
     new Date().toLocaleDateString(undefined, options)
   );
@@ -21,17 +21,20 @@ const TodoInput = () => {
   const [task, setTask] = useState("");
 
   const { handleTodoAdd } = useTodoContext();
+  /*for adding subtask*/
+  const { parentId, taskGroup = null } = props;
+
+  /*input box focus on render */
   const inputRef = useRef(null);
 
-  //input box focus on render
   useEffect(() => {
     inputRef.current.focus();
   }, []);
 
-  const handleAddTask = (parentId) => {
+  const handleAddTask = () => {
     const todoTask = {
       id: generateId(),
-      todoGroup: selectedGroup,
+      todoGroup: !taskGroup ? selectedGroup : taskGroup,
       todoText: task,
       isCompleted: false,
       isEditing: false,
@@ -44,7 +47,7 @@ const TodoInput = () => {
   };
 
   return (
-    <div className="flex flex-col border rounded-xl w-[35rem] sm:w-auto border-gray-600">
+    <div className="flex flex-col border rounded-xl w-[35rem] sm:w-auto border-gray-600 font-sans">
       <div className="flex gap-3 p-3 pl-5 pr-5 rounded-xl">
         <span>
           <input
@@ -96,7 +99,9 @@ const TodoInput = () => {
                   type="radio"
                   value={group}
                   className="appearance-none"
-                  checked={selectedGroup === group}
+                  checked={
+                    taskGroup ? taskGroup === group : selectedGroup === group
+                  }
                   onChange={(e) => setSelectedGroup(e.target.value)}
                 />
                 {group}
@@ -107,7 +112,7 @@ const TodoInput = () => {
         <span className="p-2">
           <button
             className="ml-6 border rounded-md disabled:bg-gray-100 disabled:text-gray-400   bg-blue-200 p-1 pl-2 pr-3 "
-            onClick={() => handleAddTask(null)}
+            onClick={handleAddTask}
             disabled={!task}
           >
             Add Task

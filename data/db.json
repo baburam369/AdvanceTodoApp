@@ -1,82 +1,32 @@
 {
   "todos": [
     {
-      "id": "1",
+      "id": "3341806",
       "todoGroup": "Work",
-      "todoText": "meeting with clients",
+      "todoText": "aur kaam",
       "isCompleted": false,
       "isEditing": false,
-      "dueDate": "August 13, 2023",
-      "priority": "High",
-      "parentId": null
+      "dueDate": "May 7, 2025",
+      "priority": "Low",
+      "parentId": "1699499"
     },
     {
-      "id": "2",
-      "todoGroup": "School",
-      "todoText": "DO assignment",
-      "isCompleted": false,
-      "isEditing": false,
-      "dueDate": "August 11, 2023",
-      "priority": "High",
-      "parentId": null
-    },
-    {
-      "id": "3",
-      "todoGroup": "School",
-      "todoText": "History assignment",
-      "isCompleted": false,
-      "isEditing": false,
-      "dueDate": "August 11, 2023",
-      "priority": "low",
-      "parentId": 2
-    },
-    {
-      "id": "5",
+      "id": "8794846",
       "todoGroup": "Work",
-      "todoText": "Chat over Lunch with PM",
+      "todoText": "Todo add Check mark on complete",
       "isCompleted": false,
       "isEditing": false,
-      "dueDate": "August 14, 2023",
-      "priority": "Medium",
+      "dueDate": "May 7, 2025",
+      "priority": "Low",
       "parentId": null
     },
     {
-      "id": "6",
+      "id": "2853605",
       "todoGroup": "Work",
-      "todoText": "Discuss the requirement",
+      "todoText": "fix bug: on parent task delete, child(ren) also deletes",
       "isCompleted": false,
       "isEditing": false,
-      "dueDate": "August 13, 2023",
-      "priority": "Medium",
-      "parentId": 5
-    },
-    {
-      "id": "3722173",
-      "todoGroup": "Daily",
-      "todoText": "Clean House",
-      "isCompleted": false,
-      "isEditing": false,
-      "dueDate": "May 4, 2025",
-      "priority": "Medium",
-      "parentId": null
-    },
-    {
-      "id": "2351523",
-      "todoGroup": "School",
-      "todoText": "Prepare for Exams",
-      "isCompleted": false,
-      "isEditing": false,
-      "dueDate": "May 6, 2025",
-      "priority": "High",
-      "parentId": null
-    },
-    {
-      "id": "1238881",
-      "todoGroup": "College",
-      "todoText": "Get assignemnt",
-      "isCompleted": false,
-      "isEditing": false,
-      "dueDate": "May 4, 2025",
+      "dueDate": "May 7, 2025",
       "priority": "Low",
       "parentId": null
     }

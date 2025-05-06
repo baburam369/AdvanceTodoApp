@@ -52,19 +52,25 @@ const TodoList = () => {
   );
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <TodoInput />
-      <div className="pl-10 mt-2">
-        {Object.entries(groupedNestedTask).map(([groupName, todos], index) => (
-          <div key={index}>
-            <h3>{groupName}</h3>
-            {todos.map((todo) => (
-              <div key={todo.id} className=" m-1 w-[26rem]">
-                <TodoItem todo={todo} />
-              </div>
-            ))}
+    <div className="flex flex-col justify-center items-center text-sm">
+      <TodoInput parentId={null} />
+      <div className=" border  border-gray-300  mt-3 overflow-hidden relative">
+        <div className="sticky w-[34rem] h-[31.5rem] overflow-auto  ">
+          <div className="m-4 ">
+            {Object.entries(groupedNestedTask).map(
+              ([groupName, todos], index) => (
+                <div key={index} className="">
+                  <h3 className="text-sm font-sans">{groupName}</h3>
+                  {todos.map((todo) => (
+                    <div key={todo.id} className=" m-2 font-sans  ">
+                      <TodoItem todo={todo} />
+                    </div>
+                  ))}
+                </div>
+              )
+            )}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

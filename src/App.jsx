@@ -5,7 +5,7 @@ import { useTodoContext } from "./contexts/todoContext";
 function App() {
   return (
     <>
-      <div className="container flex flex-col gap-6 m-7">
+      <div className=" flex flex-col gap-6 h-screen ">
         <NavBar />
         <TodoList />
       </div>

@@ -25,7 +25,6 @@ export const TodoContextProvider = ({ children }) => {
   const handleTodoAdd = async (todoData) => {
     try {
       const response = await axios.post(`${API_BASE_URL}/todos`, todoData);
-      console.log(response);
     } catch (error) {
       console.error(error);
     }
