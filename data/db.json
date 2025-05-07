@@ -1,29 +1,9 @@
 {
   "todos": [
     {
-      "id": "3341806",
-      "todoGroup": "Work",
-      "todoText": "aur kaam",
-      "isCompleted": false,
-      "isEditing": false,
-      "dueDate": "May 7, 2025",
-      "priority": "Low",
-      "parentId": "1699499"
-    },
-    {
       "id": "8794846",
       "todoGroup": "Work",
       "todoText": "Todo add Check mark on complete",
-      "isCompleted": false,
-      "isEditing": false,
-      "dueDate": "May 7, 2025",
-      "priority": "Low",
-      "parentId": null
-    },
-    {
-      "id": "2853605",
-      "todoGroup": "Work",
-      "todoText": "fix bug: on parent task delete, child(ren) also deletes",
       "isCompleted": false,
       "isEditing": false,
       "dueDate": "May 7, 2025",

@@ -46,8 +46,17 @@ const TodoInput = (props) => {
     handleTodoAdd(todoTask);
   };
 
+  const handleOnKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleAddTask();
+    }
+  };
+
   return (
-    <div className="flex flex-col border rounded-xl w-[35rem] sm:w-auto border-gray-600 font-sans">
+    <div
+      className="flex flex-col border rounded-xl w-[35rem] sm:w-auto border-gray-600 font-sans"
+      onKeyDown={task ? handleOnKeyDown : null}
+    >
       <div className="flex gap-3 p-3 pl-5 pr-5 rounded-xl">
         <span>
           <input

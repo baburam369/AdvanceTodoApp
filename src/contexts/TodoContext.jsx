@@ -31,10 +31,27 @@ export const TodoContextProvider = ({ children }) => {
   };
 
   const handleTodoDelete = async (id) => {
-    try {
-      const response = await axios.delete(`${API_BASE_URL}/todos/${id}`);
-    } catch (error) {
-      console.error(error);
+    /*Handling deletion of subtasks if parents get deleted*/
+
+    /*get all subtasks pertaining to the id(if any) */
+    const subTasks = todos.filter((todo) => todo.parentId === id);
+
+    /*no subtasks? directly delete the task : get all the ids of subtasks & parent and delete them*/
+    if (!subTasks.length) {
+      deleteTask(id);
+    } else {
+      const getSubTasksId = subTasks.map((task) => task.id);
+      const tasksToDelete = [...getSubTasksId, id];
+
+      tasksToDelete.forEach((id) => deleteTask(id));
+    }
+
+    async function deleteTask(id) {
+      try {
+        const response = await axios.delete(`${API_BASE_URL}/todos/${id}`);
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
   return (
