@@ -40,12 +40,6 @@ const TodoList = () => {
     return newGroup;
   }
 
-  //   console.log(todosGroupedAndNested(todos));
-
-  //   useEffect(() => {
-  //     setNestedTask(buildTree(todos));
-  //   }, [todos]);
-
   const groupedNestedTask = useMemo(
     () => todosGroupedAndNested(todos),
     [todos]

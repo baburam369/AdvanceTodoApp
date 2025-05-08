@@ -7,11 +7,12 @@ import AddSubTaskModal from "./AddSubTaskModal";
 const TodoItem = ({ todo }) => {
   const [isHover, setIshover] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const { handleTodoDelete } = useTodoContext();
+  const { handleTodoDelete, toggleTodo } = useTodoContext();
 
   const handleModalView = () => {
     setIsOpenModal(!isOpenModal);
   };
+
   return (
     <div className="pl-3 p-3 m-2 border rounded-md relative">
       <div
@@ -23,9 +24,14 @@ const TodoItem = ({ todo }) => {
         {/* {!todo.parentId ? <span>&#x2b;</span> : null} */}
         <div className="flex justify-between ">
           <span>
-            <label>
-              <input type="checkbox" className="check-box " />
-              <span> {todo.todoText}</span>
+            <label className="has-checked:line-through">
+              <input
+                type="checkbox"
+                className="check-box "
+                checked={todo.isCompleted}
+                onChange={() => toggleTodo(todo.id)}
+              />
+              <span>{todo.todoText}</span>
             </label>
           </span>
 

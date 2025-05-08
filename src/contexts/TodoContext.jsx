@@ -30,6 +30,44 @@ export const TodoContextProvider = ({ children }) => {
     }
   };
 
+  //toggle todo complete(check/uncheck)
+  const toggleTodo = async (id) => {
+    /*on parent task complete mark all child task complete */
+    const subTasks = todos.filter((todo) => todo.parentId === id);
+
+    if (!subTasks.length) {
+      updateTodoState(id);
+    } else {
+      const subTasksIds = subTasks.map((task) => task.id);
+      const tasksToToggle = [...subTasksIds, id];
+
+      tasksToToggle.forEach((taskId) => updateTodoState(taskId));
+    }
+
+    /*todo for child to parent-> on all clild task complete, mark parent also complete
+
+      do something..
+    */
+
+    async function updateTodoState(id) {
+      const todoObj = [...todos];
+      const todoToToggle = todoObj.find((todo) => todo.id === id);
+
+      const payload = {
+        ...todoToToggle,
+        isCompleted: !todoToToggle.isCompleted,
+      };
+      try {
+        const response = await axios.put(
+          `${API_BASE_URL}/todos/${id}`,
+          payload
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+
   const handleTodoDelete = async (id) => {
     /*Handling deletion of subtasks if parents get deleted*/
 
@@ -61,6 +99,7 @@ export const TodoContextProvider = ({ children }) => {
         setTodos,
         handleTodoAdd,
         handleTodoDelete,
+        toggleTodo,
       }}
     >
       {children}
