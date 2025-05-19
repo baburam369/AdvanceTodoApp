@@ -13,6 +13,8 @@ const TodoList = () => {
     const updatedTask = {};
     const newGroup = [];
 
+    console.log(todos);
+
     for (const group in groupedTodos) {
       const roots = [];
 
@@ -48,7 +50,7 @@ const TodoList = () => {
   return (
     <div className="flex flex-col justify-center items-center text-sm">
       <TodoInput parentId={null} />
-      <div className=" border  border-gray-300  mt-3 overflow-hidden relative">
+      <div className=" mt-3 overflow-hidden relative  border border-gray-100 shadow-md  ">
         <div className="sticky w-[34rem] h-[31.5rem] overflow-auto  ">
           <div className="m-4 ">
             {Object.entries(groupedNestedTask).map(
@@ -56,7 +58,7 @@ const TodoList = () => {
                 <div key={index} className="">
                   <h3 className="text-sm font-sans">{groupName}</h3>
                   {todos.map((todo) => (
-                    <div key={todo.id} className=" m-2 font-sans  ">
+                    <div key={todo.id} className=" m-2 font-sans ">
                       <TodoItem todo={todo} />
                     </div>
                   ))}

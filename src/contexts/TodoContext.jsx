@@ -31,41 +31,71 @@ export const TodoContextProvider = ({ children }) => {
   };
 
   //toggle todo complete(check/uncheck)
-  const toggleTodo = async (id) => {
-    /*on parent task complete mark all child task complete */
-    const subTasks = todos.filter((todo) => todo.parentId === id);
+  const toggleTodo = async (e, todo) => {
+    const taskState = e.target.checked;
+    const id = todo.id;
+    const children = todo.children;
 
-    if (!subTasks.length) {
-      updateTodoState(id);
-    } else {
-      const subTasksIds = subTasks.map((task) => task.id);
-      const tasksToToggle = [...subTasksIds, id];
-
-      tasksToToggle.forEach((taskId) => updateTodoState(taskId));
+    //single task, no children
+    if (!children.length && !todo.parentId) {
+      updateTodoState(id, taskState);
     }
+    //subtask
+    if (!children.length && todo.parentId) {
+      updateTodoState(id, taskState);
+      updateTodoState(todo.parentId, false);
 
-    /*todo for child to parent-> on all clild task complete, mark parent also complete
+      /* on all child task complete, mark parent also complete otherwise mark incomplete */
+      const getAllSubTasks = todos.filter(
+        (task) => task.parentId === todo.parentId
+      );
 
-      do something..
-    */
+      let allSubtaskCompleted = 0;
+      getAllSubTasks.forEach((task) => {
+        if (task.isCompleted) {
+          allSubtaskCompleted += 1;
+        }
+      });
 
-    async function updateTodoState(id) {
-      const todoObj = [...todos];
-      const todoToToggle = todoObj.find((todo) => todo.id === id);
-
-      const payload = {
-        ...todoToToggle,
-        isCompleted: !todoToToggle.isCompleted,
-      };
-      try {
-        const response = await axios.put(
-          `${API_BASE_URL}/todos/${id}`,
-          payload
-        );
-      } catch (error) {
-        console.error(error);
+      if (allSubtaskCompleted === getAllSubTasks.length) {
+        updateTodoState(todo.parentId, taskState);
+      } else {
+        updateTodoState(todo.parentId, false);
       }
     }
+
+    /*on parent task complete mark all child task complete */
+    const subTasksIds = children.map((task) => task.id);
+    const tasksToToggle = [...subTasksIds, id];
+    tasksToToggle.forEach((taskId) => updateTodoState(taskId, taskState));
+
+    /* direct modify todoList */
+    function updateTodoState(id, taskState) {
+      const todoObj = [...todos];
+      const todoToToggle = todoObj.find((todo) => todo.id === id);
+      todoToToggle.isCompleted = taskState;
+
+      setTodos(todoObj);
+    }
+
+    //api call
+    // async function updateTodoState(id, taskState) {
+    //   const todoObj = [...todos];
+    //   const todoToToggle = todoObj.find((todo) => todo.id === id);
+
+    //   const payload = {
+    //     ...todoToToggle,
+    //     isCompleted: taskState,
+    //   };
+    //   try {
+    //     const response = await axios.put(
+    //       `${API_BASE_URL}/todos/${id}`,
+    //       payload
+    //     );
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // }
   };
 
   const handleTodoDelete = async (id) => {

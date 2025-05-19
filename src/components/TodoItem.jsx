@@ -14,14 +14,12 @@ const TodoItem = ({ todo }) => {
   };
 
   return (
-    <div className="pl-3 p-3 m-2 border rounded-md relative">
+    <div className="pl-3 p-3 m-2  rounded-md relative box--shadow">
       <div
         className="flex flex-col"
         onMouseEnter={() => setIshover(!isHover)}
         onMouseLeave={() => setIshover(!isHover)}
       >
-        {/* insert plus icon for add subtask */}
-        {/* {!todo.parentId ? <span>&#x2b;</span> : null} */}
         <div className="flex justify-between ">
           <span>
             <label className="has-checked:line-through">
@@ -29,7 +27,7 @@ const TodoItem = ({ todo }) => {
                 type="checkbox"
                 className="check-box "
                 checked={todo.isCompleted}
-                onChange={() => toggleTodo(todo.id)}
+                onChange={(e) => toggleTodo(e, todo)}
               />
               <span>{todo.todoText}</span>
             </label>

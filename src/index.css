@@ -67,10 +67,14 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #bcbbbb;
+    background: #e1e1e1;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #6e6e6e;
+    background: #fdfcfc;
 }
+
+.box--shadow {
+  box-shadow: rgba(89, 88, 88, 0.35) 0px 5px 10px;
+} 
