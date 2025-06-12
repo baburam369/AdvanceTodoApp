@@ -13,8 +13,6 @@ const TodoList = () => {
     const updatedTask = {};
     const newGroup = [];
 
-    console.log(todos);
-
     for (const group in groupedTodos) {
       const roots = [];
 

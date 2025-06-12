@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAppContext } from "../contexts/AppContext";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { isLoggedin } = useAppContext();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -10,7 +12,7 @@ const Login = () => {
   });
 
   const [validationErrors, setValidationErrors] = useState({});
-
+  console.log("In login comp ", isLoggedin);
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(formData);

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAppContext } from "../contexts/AppContext";
 
 const Register = () => {
   const navigate = useNavigate();
+  const { setUser } = useAppContext();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -14,7 +16,7 @@ const Register = () => {
 
   const [validationErrors, setValidationErrors] = useState({});
 
-  const onSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     let errors = {};
@@ -47,14 +49,17 @@ const Register = () => {
     setValidationErrors(errors);
 
     if (Object.keys(errors).length === 0) {
-      navigate("/");
+      const success = await setUser(formData);
+      if (success) {
+        navigate("/");
+      }
     }
   };
   return (
     <div className="flex items-center justify-center h-screen p-8 sm:p-4 bg-linear-to-t from-sky-500 to-indigo-500">
       <div className="w-full h-max md:w-[80%] sm:w-[70%] sm:h-max lg:w-[60%] p-6 md:p-10 shadow-md bg-gray-50 rounded">
         <form
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit}
           className="m-5 lg:m-10 lg:ml-19 flex flex-col gap-5"
         >
           <h2 className="text-3xl font-bold mb-5">Register</h2>
